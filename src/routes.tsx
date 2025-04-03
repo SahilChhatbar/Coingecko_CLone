@@ -1,15 +1,15 @@
 import { createBrowserRouter } from 'react-router-dom'
-import Appshell from './layout/Appshell'
-import Table from './pages/cryptocurrency table'
+import AppShellLayout from './layout/AppShellLayout'
+import Home from './pages/home/index'
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Appshell />,
+    element: <AppShellLayout />,
     children: [
       {
         index: true,
-        element: <Table />,
+        element: <Home />,
       },
     ],
   },
