@@ -4,6 +4,20 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchCryptoData } from "../../../api/coingecko";
 import { TABLE_CONFIG, CURRENCY_FORMAT, PRICE_COLORS, PRICE_ARROWS } from "../../../constants";
 
+interface Crypto {
+  id: string;
+  name: string;
+  symbol: string;
+  image: string;
+  current_price: number;
+  market_cap: number;
+  market_cap_rank: number;
+  total_volume: number;
+  price_change_percentage_1h_in_currency: number | null;
+  price_change_percentage_24h_in_currency: number | null;
+  price_change_percentage_7d_in_currency: number | null;
+}
+
 const CryptoTable = () => {
   const [page, setPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(TABLE_CONFIG.ITEMS_PER_PAGE);
@@ -78,7 +92,7 @@ const CryptoTable = () => {
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody className="font-mono">
-            {data?.map((crypto) => (
+            {data?.map((crypto: Crypto) => (
               <Table.Tr key={crypto.id}>
                 <Table.Td>{crypto.market_cap_rank}</Table.Td>
                 <Table.Td className="w-[30%]">
