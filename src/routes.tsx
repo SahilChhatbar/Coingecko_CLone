@@ -1,6 +1,7 @@
-import { createBrowserRouter } from 'react-router-dom'
-import AppShellLayout from './layout/AppShellLayout'
-import Home from './pages/home/index'
+import { createBrowserRouter } from 'react-router-dom';
+import AppShellLayout from './layout/AppShellLayout';
+import Home from './pages/home';
+import CryptoDetail from './pages/coindetail/index';
 
 export const router = createBrowserRouter([
   {
@@ -11,6 +12,10 @@ export const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
+      {
+        path: 'coin/:id',
+        element: <CryptoDetail />,
+      },
     ],
   },
-])
+]);
